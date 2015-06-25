@@ -10,10 +10,6 @@ public class Block {
 	public int[] size = new int[2];
 	public Pixel[] pixels;
 	
-	public Block(){
-		
-	}
-	
 	public Block(int x, int y){
 		this.x = x;
 		this.y = y;
