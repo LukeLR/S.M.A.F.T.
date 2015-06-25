@@ -1,7 +1,10 @@
 package Main;
 
 import blocks.*;
+
 import java.awt.Color;
+
+import misc.Position;
 import ui.TestWindow;
 import blocks.Block;
 
@@ -39,9 +42,9 @@ public class Main {
 		Block result = blocks[(int)Math.random()*6];
 		
 		//überprüfen ob der block sich dem Spielfeld hinzufügen lässt
-		Position[] pp = b.getBlockedPosition();
+		Position[] pp = result.getBlockedPositions();
 		if(pp!=null) for(Position p : pp){
-			if(statBlocks[p.getX()][p.getY()] != null) return null
+			if(statBlocks[p.getX()][p.getY()] != null) return null;
 		}
 		
 		return result;
@@ -51,7 +54,16 @@ public class Main {
 		b.setY(b.getY() + 1);
 		
 		//überprüfen ob der Block noch passt
-
+		Position[] pp = b.getBlockedPositions();
+		if(pp!=null) for(Position p : pp){
+			if(statBlocks[p.getX()][p.getY()] != null) return false;
+		}
+		
+		//überprüfen ob der Block noch im Feld ist
+		if(pp!=null) for(Position p : pp){
+			int x = p.getX(), y = p.getY();
+			if(0 < y && y < 50 && 0 < x && x < 50) return false;
+		}
 		
 		return true;
 	}
