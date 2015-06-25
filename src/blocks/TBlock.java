@@ -7,10 +7,12 @@ public class TBlock extends Block {
 	
 	public TBlock(int x, int y){
 		super(x,y);
+		addPixels();
 	}
 	
 	public TBlock(int x, int y, Color color){
 		super(x,y,color);
+		addPixels();
 	}
 	
 	private void addPixels(){

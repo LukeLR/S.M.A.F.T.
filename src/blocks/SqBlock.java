@@ -7,10 +7,12 @@ public class SqBlock extends Block{
 	
 	public SqBlock(int x, int y){
 		super(x,y);
+		addPixels();
 	}
 	
 	public SqBlock(int x, int y, Color color){
 		super(x,y,color);
+		addPixels();
 	}
 	
 	private void addPixels(){

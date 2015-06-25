@@ -7,10 +7,12 @@ public class IBlock extends Block{
 	
 	public IBlock(int x, int y){
 		super(x,y);
+		addPixels();
 	}
 	
 	public IBlock(int x, int y, Color color){
 		super(x,y,color);
+		addPixels();
 	}
 	
 	private void addPixels(){

@@ -7,10 +7,12 @@ public class LBlock extends Block {
 	
 	public LBlock(int x, int y){
 		super(x,y);
+		addPixels();
 	}
 	
 	public LBlock(int x, int y, Color color){
 		super(x,y,color);
+		addPixels();
 	}
 	
 	private void addPixels(){
