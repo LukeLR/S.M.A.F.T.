@@ -1,6 +1,7 @@
 package blocks;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 public class Block {
 	public int x = 0;
@@ -55,5 +56,12 @@ public class Block {
 	
 	private void getPixels(){
 		//only used by subclasses to form the individual block out of single pixels.
+	}
+	
+	public void draw(Graphics g, int[] blockSize){
+		g.setColor(color);
+		for (int i = 0; i < pixels.length; i++){
+			g.fillRect((x + pixels[i].getX())*blockSize[0], (y + pixels[i].getY())*blockSize[1], blockSize[0], blockSize[1]);
+		}
 	}
 }
