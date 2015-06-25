@@ -8,16 +8,16 @@ public class Block {
 	public Color color;
 	public int[] size = new int[2];
 	
-	public void Block(){
+	public Block(){
 		
 	}
 	
-	public void Block(int x, int y){
+	public Block(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
 	
-	public void Block(int x, int y, Color color){
+	public Block(int x, int y, Color color){
 		this.x = x;
 		this.y = y;
 		this.color = color;

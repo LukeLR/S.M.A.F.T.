@@ -7,16 +7,16 @@ public class Pixel {
 	public int y;
 	public Color color;
 	
-	public void Pixel(){
+	public Pixel(){
 		
 	}
 	
-	public void Pixel (int x, int y){
+	public Pixel (int x, int y){
 		this.x = x;
 		this.y = y;
 	}
 	
-	public void Pixel (int x, int y, Color color){
+	public Pixel (int x, int y, Color color){
 		this.x = x;
 		this.y = y;
 		this.color = color;
