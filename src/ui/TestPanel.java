@@ -1,6 +1,7 @@
 package ui;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -13,28 +14,23 @@ import blocks.TBlock;
 import blocks.ZBlock;
 
 public class TestPanel extends JPanel{
-	Block[] blocks;
+
+    ArrayList<Block> blocks;
 	
 	public TestPanel(){
 		super();
-		addBlocks();
+        blocks = new ArrayList<Block>();
 	}
-	
-	private void addBlocks(){
-		blocks = new Block[6];
-		blocks[0] = new IBlock(1,1);
-		blocks[1] = new LBlock(5,1);
-		blocks[2] = new SBlock(9,1);
-		blocks[3] = new SqBlock(13,1);
-		blocks[4] = new TBlock(17,1);
-		blocks[5] = new ZBlock(21,1);
-	}
+
+    public void addBlock(Block b){
+       blocks.add(b);
+    }
 	
 	public void paintComponent(Graphics g){
 		System.out.println("Hey!");
 		super.paintComponent(g);
-		for(int i = 0; i < blocks.length; i++){
-			blocks[i].draw(g, new int[]{20,20});
-		}
+        for(Block b : blocks){
+            b.draw(g, new int[]{10, 10});
+        }
 	}
 }

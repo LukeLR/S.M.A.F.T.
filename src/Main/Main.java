@@ -9,23 +9,23 @@ import ui.TestWindow;
 import blocks.Block;
 
 public class Main{
-	Color[][] statBlocks = new Color[50][50];
+	boolean[][] statBlocks = new boolean[50][50];
 	
 	public static void main(String[] args){
 		Main m = new Main();
 		TestWindow t = new TestWindow();
-		new GameEngine(m, t);
+		new GameEngine(m, t).start();
 	}
 	
-	public Color[][] getStats(){
+	public boolean[][] getStats(){
 		return statBlocks;
 	}
 	
-	public Color getColor(int x, int y){
+	public boolean getFilled(int x, int y){
 		return statBlocks[x][y];
 	}
 	
-	public void setColor(int x, int y, Color c){
+	public void setFilled(int x, int y, boolean c){
 		statBlocks[x][y] = c;
 	}
 }

@@ -52,6 +52,7 @@ public class Block {
 	}
 	
 	public int getY(){
+        System.out.println(pos.getY());
 		return pos.getY();
 	}
 	
@@ -65,13 +66,13 @@ public class Block {
 	
 	public void draw(Graphics g, int[] blockSize){
 		g.setColor(color);
-		if (constellations[currentConstellation].getPixels() != null){ //TODO: fix me better
-			System.out.println("Ich sollte jetzt was zeichnen...");
-			for (int i = 0; i < constellations[currentConstellation].getPixels().length; i++){
-				g.fillRect((pos.getX() + constellations[currentConstellation].getPixels()[i].getX())*blockSize[0],
-						(pos.getY() + constellations[currentConstellation].getPixels()[i].getY())*blockSize[1], blockSize[0], blockSize[1]);
-			}
-		}
+		if (constellations[currentConstellation].getPixels() != null) { //TODO: fix me better
+            System.out.println("Ich sollte jetzt was zeichnen...");
+            for (int i = 0; i < constellations[currentConstellation].getPixels().length; i++) {
+                g.fillRect((pos.getX() + constellations[currentConstellation].getPixels()[i].getX()) * blockSize[0],
+                        (pos.getY() + constellations[currentConstellation].getPixels()[i].getY()) * blockSize[1], blockSize[0], blockSize[1]);
+            }
+        }
 	}
 	
 	public boolean containsPos(int x, int y){
@@ -97,7 +98,7 @@ public class Block {
 	}
 	
 	public void calcBlocked(){
-		System.out.println("clacBlocked");
+		//System.out.println("clacBlocked");
 		blockedPositions = new Position[constellations[currentConstellation].getPixels().length];
 		for (int i = 0; i < constellations[currentConstellation].getPixels().length; i++){
 			blockedPositions[i] = new Position(pos.getX() + constellations[currentConstellation].getPixels()[i].getX(),
