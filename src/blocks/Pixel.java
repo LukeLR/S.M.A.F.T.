@@ -2,22 +2,21 @@ package blocks;
 
 import java.awt.Color;
 
-public class Block {
-	public int x = 0;
-	public int y = 0;
+public class Pixel {
+	public int x;
+	public int y;
 	public Color color;
-	public int[] size = new int[2];
 	
-	public void Block(){
+	public void Pixel(){
 		
 	}
 	
-	public void Block(int x, int y){
+	public void Pixel (int x, int y){
 		this.x = x;
 		this.y = y;
 	}
 	
-	public void Block(int x, int y, Color color){
+	public void Pixel (int x, int y, Color color){
 		this.x = x;
 		this.y = y;
 		this.color = color;
