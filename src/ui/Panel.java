@@ -21,6 +21,7 @@ public class Panel extends JPanel{
 	}
 	
 	public void paintComponent(Graphics g){
+		System.out.println("Hey!");
 		super.paintComponent(g);
 		for(int i = 0; i < blocks.length; i++){
 			blocks[i].draw(g, new int[]{20,20});

@@ -1,5 +1,6 @@
 package Main;
 
+import ui.Window;
 import blocks.Block;
 
 public class Main {

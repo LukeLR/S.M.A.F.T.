@@ -58,8 +58,10 @@ public class Block {
 	
 	public void draw(Graphics g, int[] blockSize){
 		g.setColor(color);
-		for (int i = 0; i < pixels.length; i++){
-			g.fillRect((x + pixels[i].getX())*blockSize[0], (y + pixels[i].getY())*blockSize[1], blockSize[0], blockSize[1]);
+		if (pixels != null){ //TODO: fix me better
+			for (int i = 0; i < pixels.length; i++){
+				g.fillRect((x + pixels[i].getX())*blockSize[0], (y + pixels[i].getY())*blockSize[1], blockSize[0], blockSize[1]);
+			}
 		}
 	}
 }
