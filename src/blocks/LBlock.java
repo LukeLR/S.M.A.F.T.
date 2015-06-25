@@ -2,6 +2,8 @@ package blocks;
 
 import java.awt.Color;
 
+import misc.Constellation;
+
 public class LBlock extends Block {
 	
 	
@@ -14,10 +16,10 @@ public class LBlock extends Block {
 	}
 	
 	void addPixels(){
-		pixels = new Pixel[4];
-		pixels[0] = new Pixel(0, 0);
-		pixels[1] = new Pixel(0, 1);
-		pixels[2] = new Pixel(0, 2);
-		pixels[3] = new Pixel(1, 2);
+		constellations = new Constellation[4];
+		constellations[0] = new Constellation(new Pixel[]{new Pixel(0,0), new Pixel(0,1), new Pixel(0,2), new Pixel(1,2)});
+		constellations[1] = new Constellation(new Pixel[]{new Pixel(0,1), new Pixel(0,0), new Pixel(1,0), new Pixel(2,0)});
+		constellations[2] = new Constellation(new Pixel[]{new Pixel(0,0), new Pixel(1,0), new Pixel(1,1), new Pixel(1,2)});
+		constellations[3] = new Constellation(new Pixel[]{new Pixel(0,1), new Pixel(1,1), new Pixel(2,1), new Pixel(2,0)});
 	}
 }

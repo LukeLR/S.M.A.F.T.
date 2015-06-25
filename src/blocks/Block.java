@@ -2,13 +2,16 @@ package blocks;
 
 import java.awt.Color;
 import java.awt.Graphics;
+
+import misc.Constellation;
 import misc.Position;
 
 public class Block {
 	public Position pos = new Position (0, 0);
 	public Color color = Color.red;
 	public int[] size = new int[2];
-	public Pixel[] pixels;
+	public Constellation[] constellations;
+	public Constellation currentConstellation;
 	public Position[] blockedPositions;
 	
 	public Block(int x, int y){
@@ -61,10 +64,11 @@ public class Block {
 	
 	public void draw(Graphics g, int[] blockSize){
 		g.setColor(color);
-		if (pixels != null){ //TODO: fix me better
+		if (currentConstellation.getPixels() != null){ //TODO: fix me better
 			System.out.println("Ich sollte jetzt was zeichnen...");
-			for (int i = 0; i < pixels.length; i++){
-				g.fillRect((pos.getX() + pixels[i].getX())*blockSize[0], (pos.getY() + pixels[i].getY())*blockSize[1], blockSize[0], blockSize[1]);
+			for (int i = 0; i < currentConstellation.getPixels().length; i++){
+				g.fillRect((pos.getX() + currentConstellation.getPixels()[i].getX())*blockSize[0],
+						(pos.getY() + currentConstellation.getPixels()[i].getY())*blockSize[1], blockSize[0], blockSize[1]);
 			}
 		}
 	}
@@ -92,9 +96,10 @@ public class Block {
 	}
 	
 	public void calcBlocked(){
-		blockedPositions = new Position[pixels.length];
-		for (int i = 0; i < pixels.length; i++){
-			blockedPositions[i] = new Position(pos.getX() + pixels[i].getX(),pos.getY() + pixels[i].getY());
+		blockedPositions = new Position[currentConstellation.getPixels().length];
+		for (int i = 0; i < currentConstellation.getPixels().length; i++){
+			blockedPositions[i] = new Position(pos.getX() + currentConstellation.getPixels()[i].getX(),
+					pos.getY() + currentConstellation.getPixels()[i].getY());
 		}
 	}
 	
