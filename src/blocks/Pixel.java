@@ -6,7 +6,7 @@ public class Pixel {
 	private Position pos = new Position(0, 0);
 	
 	public Pixel (int x, int y){
-		pos = new Position(x, y,);
+		pos = new Position(x, y);
 	}
 	
 	public void setX(int x){
