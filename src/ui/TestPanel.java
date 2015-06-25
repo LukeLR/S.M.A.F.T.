@@ -22,8 +22,8 @@ public class TestPanel extends JPanel{
 	
 	private void addBlocks(){
 		blocks = new Block[6];
-		blocks[0] = new LBlock(1,1);
-		blocks[1] = new IBlock(5,1);
+		blocks[0] = new IBlock(1,1);
+		blocks[1] = new LBlock(5,1);
 		blocks[2] = new SBlock(9,1);
 		blocks[3] = new SqBlock(13,1);
 		blocks[4] = new TBlock(17,1);

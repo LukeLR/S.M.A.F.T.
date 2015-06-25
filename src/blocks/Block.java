@@ -17,6 +17,7 @@ public class Block {
 	public Block(int x, int y){
 		pos = new Position(x,y);
 		addPixels();
+		currentConstellation = constellations[0];
 		calcBlocked();
 	}
 	
@@ -96,6 +97,7 @@ public class Block {
 	}
 	
 	public void calcBlocked(){
+		System.out.println("clacBlocked");
 		blockedPositions = new Position[currentConstellation.getPixels().length];
 		for (int i = 0; i < currentConstellation.getPixels().length; i++){
 			blockedPositions[i] = new Position(pos.getX() + currentConstellation.getPixels()[i].getX(),
