@@ -16,4 +16,9 @@ public class LBlock extends Block {
 	public LBlock(int x, int y, Color color){
 		super(x,y,color);
 	}
+	
+	private void addPixels(){
+		pixels = new Pixel[4];
+		pixels[0] = new Pixel(0, 0);
+	}
 }

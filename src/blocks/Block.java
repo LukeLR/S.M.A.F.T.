@@ -5,8 +5,9 @@ import java.awt.Color;
 public class Block {
 	public int x = 0;
 	public int y = 0;
-	public Color color;
+	public Color color = Color.red;
 	public int[] size = new int[2];
+	public Pixel[] pixels;
 	
 	public Block(){
 		
@@ -50,5 +51,9 @@ public class Block {
 	
 	public Color getColor(){
 		return color;
+	}
+	
+	private void getPixels(){
+		//only used by subclasses to form the individual block out of single pixels.
 	}
 }

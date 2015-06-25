@@ -1,11 +1,8 @@
 package blocks;
 
-import java.awt.Color;
-
 public class Pixel {
 	public int x;
 	public int y;
-	public Color color;
 	
 	public Pixel(){
 		
@@ -16,11 +13,6 @@ public class Pixel {
 		this.y = y;
 	}
 	
-	public Pixel (int x, int y, Color color){
-		this.x = x;
-		this.y = y;
-		this.color = color;
-	}
 	
 	public void setX(int x){
 		this.x = x;
@@ -35,19 +27,11 @@ public class Pixel {
 		this.y = y;
 	}
 	
-	public void setColor(Color color){
-		this.color = color;
-	}
-	
 	public int getX(){
 		return x;
 	}
 	
 	public int getY(){
 		return y;
-	}
-	
-	public Color getColor(){
-		return color;
 	}
 }
