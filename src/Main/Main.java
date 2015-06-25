@@ -1,6 +1,6 @@
 package Main;
 
-import ui.Window;
+import ui.TestWindow;
 import blocks.Block;
 
 public class Main {
@@ -9,7 +9,7 @@ public class Main {
 	}
 	
 	public Main(){
-		new Window();
+		new TestWindow();
 	}
 	
 	public void newGame(){

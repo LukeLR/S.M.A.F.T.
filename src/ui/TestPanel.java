@@ -7,10 +7,10 @@ import javax.swing.JPanel;
 import blocks.Block;
 import blocks.LBlock;
 
-public class Panel extends JPanel{
+public class TestPanel extends JPanel{
 	Block[] blocks;
 	
-	public Panel(){
+	public TestPanel(){
 		super();
 		addBlocks();
 	}
