@@ -1,33 +1,31 @@
 package blocks;
 
+import misc.Position;
+
 public class Pixel {
-	public int x;
-	public int y;
+	private Position pos = new Position(0, 0);
 	
 	public Pixel (int x, int y){
-		this.x = x;
-		this.y = y;
+		pos = new Position(x, y,);
 	}
 	
-	
 	public void setX(int x){
-		this.x = x;
+		pos.setX(x);
 	}
 	
 	public void setY(int y){
-		this.y = y;
+		pos.setY(y);
 	}
 	
 	public void setPos(int x, int y){
-		this.x = x;
-		this.y = y;
+		pos.setPos(x,y);
 	}
 	
 	public int getX(){
-		return x;
+		return pos.getX();
 	}
 	
 	public int getY(){
-		return y;
+		return pos.getY();
 	}
 }
