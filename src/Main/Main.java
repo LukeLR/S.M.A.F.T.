@@ -5,11 +5,11 @@ import blocks.Block;
 
 public class Main {
 	public static void main(String[] args){
-		new Window();
+		new Main();
 	}
 	
 	public Main(){
-		//new Window();
+		new Window();
 	}
 	
 	public void newGame(){
