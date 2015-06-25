@@ -7,15 +7,13 @@ public class SBlock extends Block{
 	
 	public SBlock(int x, int y){
 		super(x,y);
-		addPixels();
 	}
 	
 	public SBlock(int x, int y, Color color){
 		super(x,y,color);
-		addPixels();
 	}
 	
-	private void addPixels(){
+	void addPixels(){
 		pixels = new Pixel[4];
 		pixels[0] = new Pixel(0,1);
 		pixels[1] = new Pixel(1,1);

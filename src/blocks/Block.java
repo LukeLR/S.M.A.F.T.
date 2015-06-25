@@ -55,7 +55,7 @@ public class Block {
 		return color;
 	}
 	
-	private void addPixels(){
+	void addPixels(){
 		//only used by subclasses to form the individual block out of single pixels.
 	}
 	
