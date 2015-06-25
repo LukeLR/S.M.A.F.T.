@@ -13,12 +13,14 @@ public class Block {
 	public Block(int x, int y){
 		this.x = x;
 		this.y = y;
+		addPixels();
 	}
 	
 	public Block(int x, int y, Color color){
 		this.x = x;
 		this.y = y;
 		this.color = color;
+		addPixels();
 	}
 	
 	public void setX(int x){
@@ -50,7 +52,7 @@ public class Block {
 		return color;
 	}
 	
-	private void getPixels(){
+	private void addPixels(){
 		//only used by subclasses to form the individual block out of single pixels.
 	}
 	
