@@ -11,13 +11,13 @@ public class Block {
 	public Color color = Color.red;
 	public int[] size = new int[2];
 	public Constellation[] constellations;
-	public Constellation currentConstellation;
+	public int currentConstellation;
 	public Position[] blockedPositions;
 	
 	public Block(int x, int y){
 		pos = new Position(x,y);
 		addPixels();
-		currentConstellation = constellations[0];
+		currentConstellation = 0;
 		calcBlocked();
 	}
 	
@@ -65,11 +65,11 @@ public class Block {
 	
 	public void draw(Graphics g, int[] blockSize){
 		g.setColor(color);
-		if (currentConstellation.getPixels() != null){ //TODO: fix me better
+		if (constellations[currentConstellation].getPixels() != null){ //TODO: fix me better
 			System.out.println("Ich sollte jetzt was zeichnen...");
-			for (int i = 0; i < currentConstellation.getPixels().length; i++){
-				g.fillRect((pos.getX() + currentConstellation.getPixels()[i].getX())*blockSize[0],
-						(pos.getY() + currentConstellation.getPixels()[i].getY())*blockSize[1], blockSize[0], blockSize[1]);
+			for (int i = 0; i < constellations[currentConstellation].getPixels().length; i++){
+				g.fillRect((pos.getX() + constellations[currentConstellation].getPixels()[i].getX())*blockSize[0],
+						(pos.getY() + constellations[currentConstellation].getPixels()[i].getY())*blockSize[1], blockSize[0], blockSize[1]);
 			}
 		}
 	}
@@ -98,10 +98,10 @@ public class Block {
 	
 	public void calcBlocked(){
 		System.out.println("clacBlocked");
-		blockedPositions = new Position[currentConstellation.getPixels().length];
-		for (int i = 0; i < currentConstellation.getPixels().length; i++){
-			blockedPositions[i] = new Position(pos.getX() + currentConstellation.getPixels()[i].getX(),
-					pos.getY() + currentConstellation.getPixels()[i].getY());
+		blockedPositions = new Position[constellations[currentConstellation].getPixels().length];
+		for (int i = 0; i < constellations[currentConstellation].getPixels().length; i++){
+			blockedPositions[i] = new Position(pos.getX() + constellations[currentConstellation].getPixels()[i].getX(),
+					pos.getY() + constellations[currentConstellation].getPixels()[i].getY());
 		}
 	}
 	
