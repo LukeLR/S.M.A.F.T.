@@ -2,38 +2,41 @@ package blocks;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import misc.Position;
 
 public class Block {
-	public int x = 0;
-	public int y = 0;
+	public Position pos = new Position (0, 0);
 	public Color color = Color.red;
 	public int[] size = new int[2];
 	public Pixel[] pixels;
+	public Position[] blockedPositions;
 	
 	public Block(int x, int y){
-		this.x = x;
-		this.y = y;
+		pos = new Position(x,y);
 		addPixels();
+		calcBlocked();
 	}
 	
 	public Block(int x, int y, Color color){
-		this.x = x;
-		this.y = y;
+		pos = new Position(x,y);
 		this.color = color;
 		addPixels();
+		calcBlocked();
 	}
 	
 	public void setX(int x){
-		this.x = x;
+		pos.setX(x);
+		calcBlocked();
 	}
 	
 	public void setY(int y){
-		this.y = y;
+		pos.setY(y);
+		calcBlocked();
 	}
 	
 	public void setPos(int x, int y){
-		this.x = x;
-		this.y = y;
+		pos.setPos(x,y);
+		calcBlocked();
 	}
 	
 	public void setColor(Color color){
@@ -41,11 +44,11 @@ public class Block {
 	}
 	
 	public int getX(){
-		return x;
+		return pos.getX();
 	}
 	
 	public int getY(){
-		return y;
+		return pos.getY();
 	}
 	
 	public Color getColor(){
@@ -61,8 +64,41 @@ public class Block {
 		if (pixels != null){ //TODO: fix me better
 			System.out.println("Ich sollte jetzt was zeichnen...");
 			for (int i = 0; i < pixels.length; i++){
-				g.fillRect((x + pixels[i].getX())*blockSize[0], (y + pixels[i].getY())*blockSize[1], blockSize[0], blockSize[1]);
+				g.fillRect((pos.getX() + pixels[i].getX())*blockSize[0], (pos.getY() + pixels[i].getY())*blockSize[1], blockSize[0], blockSize[1]);
 			}
 		}
+	}
+	
+	public boolean containsPos(int x, int y){
+		boolean result = false;
+		
+		/*for (int i = 0; i < pixels.length; i++){
+			if (
+				(x == pos.getX() + pixels[i].getX()) &&
+				(y == pos.getY() + pixels[i].getY())
+			){
+				result = true;
+			}
+		}*/
+		
+		Position testPos = new Position(x, y);
+		
+		for (int i = 0; i < blockedPositions.length; i++){
+			if (blockedPositions[i].equals(testPos)){
+				result = true;
+			}
+		}
+		return result;
+	}
+	
+	public void calcBlocked(){
+		blockedPositions = new Position[pixels.length];
+		for (int i = 0; i < pixels.length; i++){
+			blockedPositions[i] = new Position(pos.getX() + pixels[i].getX(),pos.getY() + pixels[i].getY());
+		}
+	}
+	
+	public Position[] getBlockedPositions(){
+		return blockedPositions;
 	}
 }
